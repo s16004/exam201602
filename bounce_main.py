@@ -43,7 +43,7 @@ class Ball:
 class Paddle:
     def __init__(self, canvas, color):
         self.canvas = canvas
-        self.id = canvas.create_rectangle(0, 0, 100, 10, fill=color)
+        self.id = canvas.create_rectangle(0, 0, 20, 10, fill=color)
         self.canvas.move(self.id, 200, 300)
         self.x = 0
         self.canvas_width = self.canvas.winfo_width()
@@ -87,10 +87,10 @@ canvas = Canvas(tk, width=500, height=400, bd=0, highlightthickness=0, bg='gray'
 canvas.pack()
 tk.update()
 
-score = Score(canvas, 'green')
+score = Score(canvas, 'green', )
 paddle = Paddle(canvas, 'blue')
 ball = Ball(canvas, paddle, score, 'red')
-game_over_text = canvas.create_text(250, 200, text='GAME OVER', state='hidden')
+game_over_text = canvas.create_text(250, 200, text='GAME OVER', state='hidden', font=('Helvetica', 30), )
 
 while True:
     if ball.hit_bottom == False and paddle.started == True:
